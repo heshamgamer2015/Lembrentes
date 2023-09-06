@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "lembretes",schema = "public")
-public class lembreteEntiny {
+public class LembreteEntiny {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,9 +16,9 @@ public class lembreteEntiny {
     @JoinColumn(name = "pessoa_id")
     private PessoaEntiny pessoaId;
 
-    public lembreteEntiny(){}
+    public LembreteEntiny(){}
 
-    public lembreteEntiny(Long id, String lembrete, PessoaEntiny pessoaId){
+    public LembreteEntiny(Long id, String lembrete, PessoaEntiny pessoaId){
         super();
         this.id = id;
         this.lembrete = lembrete;

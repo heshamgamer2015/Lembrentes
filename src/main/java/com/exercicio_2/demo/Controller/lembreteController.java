@@ -1,8 +1,8 @@
 package com.exercicio_2.demo.Controller;
 
 
-import com.exercicio_2.demo.Entiny.lembreteEntiny;
-import com.exercicio_2.demo.Services.lembreteServices;
+import com.exercicio_2.demo.Entiny.LembreteEntiny;
+import com.exercicio_2.demo.Services.LembreteServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +15,13 @@ import java.util.List;
 @RequestMapping("/lembrete")
 public class lembreteController {
     @Autowired
-    private lembreteServices services;
+    private LembreteServices services;
 
 
     @GetMapping
-    public ResponseEntity<List<lembreteEntiny>> buscarLembretesPorNome(@RequestParam("nome") String nome) {
+    public ResponseEntity<List<LembreteEntiny>> buscarLembretesPorNome(@RequestParam("nome") String nome) {
         try {
-            List<lembreteEntiny> lembretes = services.findByName(nome);
+            List<LembreteEntiny> lembretes = services.findByName(nome);
             return ResponseEntity.ok(lembretes);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -30,9 +30,9 @@ public class lembreteController {
 
 
     @PostMapping
-    public ResponseEntity<lembreteEntiny> createLembrete(@RequestBody lembreteEntiny lembrete){
+    public ResponseEntity<LembreteEntiny> createLembrete(@RequestBody LembreteEntiny lembrete){
         try {
-            lembreteEntiny novoLembrete = services.save(lembrete);
+            LembreteEntiny novoLembrete = services.cadastrar(lembrete);
             return ResponseEntity.status(HttpStatus.CREATED).body(novoLembrete);
         }catch (Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());

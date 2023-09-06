@@ -1,24 +1,24 @@
 package com.exercicio_2.demo.Services;
 
-import com.exercicio_2.demo.Entiny.lembreteEntiny;
-import com.exercicio_2.demo.Repository.lembreteRepository;
+import com.exercicio_2.demo.Entiny.LembreteEntiny;
+import com.exercicio_2.demo.Repository.LembreteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class lembreteServices {
+public class LembreteServices {
     @Autowired
-    private lembreteRepository repository;
+    private LembreteRepository repository;
 
-    public List<lembreteEntiny> findByName(String nome){
+    public List<LembreteEntiny> findByName(String nome){
         return repository.findByPessoaIdNome(nome);
     }
-    public List<lembreteEntiny>findAll(){
+    public List<LembreteEntiny>findAll(){
         return repository.findAll();
     }
-    public lembreteEntiny save(lembreteEntiny lembrete){
+    public LembreteEntiny cadastrar(LembreteEntiny lembrete){
         return repository.save(lembrete);
     }
 

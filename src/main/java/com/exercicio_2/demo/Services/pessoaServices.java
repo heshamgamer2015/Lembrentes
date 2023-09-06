@@ -18,9 +18,9 @@ public class pessoaServices {
     public List<PessoaEntiny>findAll(){
         return repository.findAll();
     }
-    public PessoaEntiny save(PessoaEntiny pessoa) {
-        return repository.save(pessoa);
-    }
+        public PessoaEntiny save(PessoaEntiny pessoa) {
+            return repository.save(pessoa);
+        }
     public PessoaEntiny editar(Long id, PessoaEntiny novaPessoa) {
         PessoaEntiny pessoaExistente = repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pessoa com ID " + id + " não encontrada"));
